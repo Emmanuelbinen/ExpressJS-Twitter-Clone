@@ -1,15 +1,7 @@
-const express = require("express");
-const app = express();
-const cors = require("cors");
-
-app.use(cors()); // Middleware pour autoriser les requêtes cross-origin
-app.use(express.json()); // Middleware pour parser les requêtes JSON
-
-// Données de démonstration (à remplacer par une base de données réelle)
 const tweets = [
   {
     id: "01",
-    tweet_avatar: "CNN-Profile-Photo.png",
+    tweet_avatar: "TweetProfilePhoto",
     tweet_body: {
       tweet_author_title: "CNN",
       tweet_authors: "CNN",
@@ -27,11 +19,11 @@ const tweets = [
   },
   {
     id: "02",
-    tweet_avatar: "Tweet-Profile-Photo2.png",
+    tweet_avatar: "TweetProfilePhoto2",
     tweet_body: {
       tweet_author_title: "The new york times",
       tweet_authors: "nytimes",
-      tweet_image: "image3.png",
+      tweet_image: "Image3", //this varibale is changed to a string for test reason
       tweet_time: "2h",
       tweet_actions: {
         reply: "19",
@@ -45,7 +37,7 @@ const tweets = [
   },
   {
     id: "03",
-    tweet_avatar: "Tweet-Profile-Photo3.png",
+    tweet_avatar: "TweetProfilePhoto3",
     tweet_body: {
       tweet_author_title: "Twitter",
       tweet_authors: "Twitter",
@@ -61,7 +53,7 @@ const tweets = [
   },
   {
     id: "04",
-    tweet_avatar: "Tweet-Profile-Photo3.png",
+    tweet_avatar: "TweetProfilePhoto3",
     tweet_body: {
       tweet_author_title: "Twitter",
       tweet_authors: "Twitter",
@@ -77,21 +69,4 @@ const tweets = [
   },
 ];
 
-// Route GET pour récupérer tous les tweets
-app.get("/api/tweets", (req, res) => {
-  res.json(tweets);
-});
-
-// Route POST pour créer un nouveau tweet
-app.post("/api/tweets", (req, res) => {
-  const newTweet = req.body;
-  tweets.push(newTweet);
-  res.status(201).json(newTweet);
-});
-
-// Autres routes pour mettre à jour, supprimer des tweets, gérer les utilisateurs, etc.
-
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Serveur démarré sur le port ${PORT}`);
-});
+module.exports = tweets;
