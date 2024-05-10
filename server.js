@@ -9,6 +9,7 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 
 // Middleware pour autoriser les requêtes cross-origin
+
 app.use(cors());
 
 // Démarrage du serveur
